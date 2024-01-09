@@ -39,9 +39,9 @@ public class ProductService {
         return productRepository.findById(id)
                 .map(product -> {
                     // Update fields of the product here
-                    product.setOrder(productDetails.getOrder());
-                    product.setProductType(productDetails.getProductType());
-                    product.setPackaging(productDetails.getPackaging());
+                    product.setOrderId(productDetails.getOrderId());
+                    product.setProductTypeId(productDetails.getProductTypeId());
+                    product.setPackagingId(productDetails.getPackagingId());
                     // ... other fields
                     return productRepository.save(product);
                 });

@@ -30,7 +30,7 @@ public class OrderController {
 
     @PostMapping
     public Order createOrder(@RequestBody Order order) {
-        return orderService.saveOrder(order);
+        return orderService.saveOrUpdateOrder(order);
     }
 
     @PutMapping("/{id}")

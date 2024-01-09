@@ -52,4 +52,5 @@ public class SettingService {
     public List<Setting> findSettingsByName(String name) {
         return settingRepository.findByName(name);
     }
+
 }

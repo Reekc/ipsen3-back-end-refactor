@@ -18,7 +18,7 @@ public class PackagingController {
 
     @GetMapping
     public List<Packaging> getAllPackaging() {
-        return packagingService.findAllPackaging();
+        return packagingService.findAllPackagings();
     }
 
     @GetMapping("/{id}")
@@ -30,7 +30,7 @@ public class PackagingController {
 
     @PostMapping
     public Packaging createPackaging(@RequestBody Packaging packaging) {
-        return packagingService.savePackaging(packaging);
+        return packagingService.saveOrUpdatePackaging(packaging);
     }
 
     @PutMapping("/{id}")

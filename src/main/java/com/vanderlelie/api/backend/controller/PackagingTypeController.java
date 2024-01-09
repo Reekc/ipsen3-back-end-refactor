@@ -30,7 +30,7 @@ public class PackagingTypeController {
 
     @PostMapping
     public PackagingType createPackagingType(@RequestBody PackagingType packagingType) {
-        return packagingTypeService.savePackagingType(packagingType);
+        return packagingTypeService.saveOrUpdatePackagingType(packagingType);
     }
 
     @PutMapping("/{id}")

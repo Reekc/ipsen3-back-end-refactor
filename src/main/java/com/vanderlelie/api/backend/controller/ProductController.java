@@ -30,7 +30,7 @@ public class ProductController {
 
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
+        return productService.saveOrUpdateProduct(product);
     }
 
     @PutMapping("/{id}")

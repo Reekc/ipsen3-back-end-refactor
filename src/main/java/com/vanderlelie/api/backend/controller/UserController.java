@@ -4,6 +4,7 @@ import com.vanderlelie.api.backend.model.User;
 import com.vanderlelie.api.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,10 +29,15 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping
     public User createUser(@RequestBody User user) {
-        return userService.saveOrUpdateUser(user);
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        return userService.saveOrUpdateUser(user, encodedPassword);
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable UUID id, @RequestBody User userDetails) {

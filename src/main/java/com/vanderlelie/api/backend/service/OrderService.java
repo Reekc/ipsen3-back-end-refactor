@@ -38,12 +38,9 @@ public class OrderService {
     public Optional<Order> updateOrder(UUID id, Order orderDetails) {
         return orderRepository.findById(id)
                 .map(order -> {
-                    // Update fields of the order here
-                    order.setCustomer(orderDetails.getCustomer());
-                    order.setUser(orderDetails.getUser());
-                    order.setProduct(orderDetails.getProduct());
-                    order.setDate(orderDetails.getDate());
-                    // ... other fields
+                    order.setCustomerId(orderDetails.getCustomerId());
+                    order.setUserId(orderDetails.getUserId());
+                    order.setProductId(orderDetails.getProductId());
                     return orderRepository.save(order);
                 });
     }

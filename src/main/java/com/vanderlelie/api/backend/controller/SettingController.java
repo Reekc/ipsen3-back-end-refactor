@@ -30,7 +30,7 @@ public class SettingController {
 
     @PostMapping
     public Setting createSetting(@RequestBody Setting setting) {
-        return settingService.saveSetting(setting);
+        return settingService.saveOrUpdateSetting(setting);
     }
 
     @PutMapping("/{id}")

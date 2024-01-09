@@ -39,7 +39,7 @@ public class ProductTypeService {
         return productTypeRepository.findById(id)
                 .map(productType -> {
                     // Update fields of the product type here
-                    productType.setPackagingType(productTypeDetails.getPackagingType());
+                    productType.setPackagingTypeId(productTypeDetails.getPackagingTypeId());
                     // ... other fields
                     return productTypeRepository.save(productType);
                 });

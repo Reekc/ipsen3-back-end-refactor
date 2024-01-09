@@ -39,7 +39,7 @@ public class LogService {
         return logRepository.findById(id)
                 .map(log -> {
                     // Update log fields here
-                    log.setArchiver(logDetails.getArchiver());
+                    log.setArchiverId(logDetails.getArchiverId());
                     log.setOrderId(logDetails.getOrderId());
                     // ... other fields
                     return logRepository.save(log);

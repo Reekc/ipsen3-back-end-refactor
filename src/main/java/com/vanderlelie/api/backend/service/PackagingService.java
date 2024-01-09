@@ -38,10 +38,10 @@ public class PackagingService {
     public Optional<Packaging> updatePackaging(UUID id, Packaging packagingDetails) {
         return packagingRepository.findById(id)
                 .map(packaging -> {
-                    // Update fields of the packaging here
+
                     packaging.setName(packagingDetails.getName());
-                    packaging.setPackagingType(packagingDetails.getPackagingType());
-                    // ... other fields
+                    packaging.setPackagingTypeId(packagingDetails.getPackagingTypeId());
+
                     return packagingRepository.save(packaging);
                 });
     }
